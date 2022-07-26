@@ -17,8 +17,8 @@ app.use(
 // app.use(morgan('combined'));
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
-app.use(planetRouter);
-app.use(launchesRouter);
+app.use('/planets', planetRouter);
+app.use('/launches', launchesRouter);
 //we use asterisk to match any match any endpoint which is not matched above
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
